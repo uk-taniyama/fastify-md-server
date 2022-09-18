@@ -44,6 +44,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': { descriptionFormat: '^: TS\\d+' } }],
+    '@typescript-eslint/member-delimiter-style': 'error',
   },
   overrides: [
     {

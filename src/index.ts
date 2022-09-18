@@ -9,7 +9,11 @@ import fastify from 'fastify';
 import hljs from 'highlight.js';
 import { marked } from 'marked';
 
+import { getArgs } from './args';
+
 import './index.css';
+
+const args = getArgs();
 
 export interface DirContext {
   dirs: ListDir[];
@@ -97,7 +101,7 @@ server.register(fastifyStatic, {
   },
 });
 
-server.listen({ port: 3000 }, (err, address) => {
+server.listen({ port: args.port }, (err, address) => {
   if (err) throw err;
-  server.log.info(`server listening on ${address}`);
+  server.log.info(`server listening on ${address} .`);
 });
