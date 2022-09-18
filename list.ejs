@@ -1,0 +1,16 @@
+<html>
+
+<body>
+  <ul>
+    <% dirs.forEach((dir) => { %>
+      <li><a href="<%= dir.href %>"><%= dir.name %>/</a><%= dir.stats.mtime.toISOString() %></li>
+    <% }); %>
+  </ul>
+  <ul>
+    <% files.forEach((file) => { %>
+      <li><a href="<%= file.href %>"><%= file.name %></a><%= file.stats.mtime.toISOString() %> <%= file.stats.size %></li>
+    <% }); %>
+  </ul>
+</body>
+
+</html>

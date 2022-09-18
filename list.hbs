@@ -1,0 +1,12 @@
+<html><body>
+<ul>
+  {{#each dirs}}
+  <li><a href="{{href}}">{{name}}/</a>{{stats.mtime.toISOString()}}</li>
+  {{/each}}
+</ul>
+<ul>
+  {{#each files}}
+  <li><a href="{{href}}">{{name}}</a>{{stats.mtime}} {{stats.size}}</li>
+  {{/each}}
+</ul>
+</body></html>

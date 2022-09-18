@@ -1,0 +1,99 @@
+@import 'github-markdown-css/github-markdown.css';
+@import 'normalize.css';
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 16px 32px;
+}
+
+/* @import 'highlight.js/styles/github-dark.css'; */
+.hljs{
+  color: var(--color-fg-default);
+  background: var(--color-canvas-subtle);
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_{
+  color: var(--color-prettylights-syntax-keyword);
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__{
+  /* color:#dcbdfb */
+  color: var(--color-prettylights-syntax-variable);
+}
+.hljs-title.function_{
+  /* color:#dcbdfb */
+  color: var(--color-prettylights-syntax-entity);
+}
+.hljs-attr {
+  color: var(--color-prettylights-syntax-constant);
+}
+.hljs-number {
+  color: var(--color-prettylights-syntax-constant);
+}
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-operator,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-variable{
+  color: var(--color-prettylights-syntax-variable);
+}
+.hljs-meta .hljs-string,
+.hljs-string{
+  color: var(--color-prettylights-syntax-string);
+}
+.hljs-regexp{
+  color: var(--color-prettylights-syntax-string-regexp);
+}
+.hljs-built_in,
+.hljs-symbol{
+  color:#f69d50
+}
+.hljs-code,
+.hljs-comment,
+.hljs-formula{
+  color: var(--color-prettylights-syntax-comment);
+}
+.hljs-property {
+  color: var(--color-prettylights-syntax-constant);
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-pseudo,
+.hljs-selector-tag{
+  color:#8ddb8c
+}
+.hljs-subst{
+  color:#adbac7
+}
+.hljs-section{
+  color:#316dca;
+  font-weight:700
+}
+.hljs-bullet{
+  color:#eac55f
+}
+.hljs-emphasis{
+  color:#adbac7;
+  font-style:italic
+}
+.hljs-strong{
+  color:#adbac7;
+  font-weight:700
+}
+.hljs-addition{
+  color: var(--color-prettylights-syntax-markup-inserted-text);
+  background-color: var(--color-prettylights-syntax-markup-inserted-bg);
+}
+.hljs-deletion{
+  color: var(--color-prettylights-syntax-markup-deleted-text);
+  background-color: var(--color-prettylights-syntax-markup-deleted-bg);
+}
