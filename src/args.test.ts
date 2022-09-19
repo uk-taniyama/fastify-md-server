@@ -27,6 +27,10 @@ describe('args', () => {
     const res = doTest('--port', '3X00');
     expect(res).toEqual({ $exit: 1 });
   });
+  it('--ejs', () => {
+    const res = doTest('--ejs', 'list.ejs');
+    expect(res).toMatchObject({ ejs: 'list.ejs' });
+  });
   it('--version', () => {
     const res = doTest('--version');
     expect(res).toEqual({ $exit: 0 });

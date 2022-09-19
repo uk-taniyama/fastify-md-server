@@ -13,8 +13,6 @@ import { getArgs } from './args';
 
 import './index.css';
 
-const args = getArgs();
-
 export interface DirContext {
   dirs: ListDir[];
   files: ListFile[];
@@ -24,6 +22,10 @@ export interface DirContext {
 const __filename = fileURLToPath(import.meta.url);
 // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle
 const __dirname = dirname(__filename);
+
+const args = getArgs();
+const listEjs = args.ejs || `${dirname(__dirname)}/list.ejs`;
+const root = args.root || process.cwd();
 
 const server = fastify({
   logger: true,
@@ -44,7 +46,6 @@ function markdown(filename: string) {
   });
 }
 
-const root = process.cwd();
 function getTitle(content: string) {
   const begin = content.indexOf('<h');
   if (begin < 0) {
@@ -87,21 +88,21 @@ server.get('/:file', async (req, reply) => {
   return reply.sendFile(file);
 });
 
-const listEjs = ejs.compile(
-  readFileSync(`${dirname(__dirname)}/list.ejs`, 'utf-8'),
-);
+function renderList(context: DirContext): string {
+  const template = readFileSync(listEjs, 'utf-8');
+  return ejs.compile(template)(context);
+}
 
 server.register(fastifyStatic, {
   root,
   index: false,
   list: {
     format: 'html',
-    // render: (dirs, files) => listHbs({ dirs, files }),
-    render: (dirs, files) => listEjs({ dirs, files }),
+    render: (dirs, files) => renderList({ dirs, files }),
   },
 });
 
 server.listen({ port: args.port }, (err, address) => {
   if (err) throw err;
-  server.log.info(`server listening on ${address} .`);
+  server.log.info(`${address}`);
 });
